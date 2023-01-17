@@ -1,0 +1,32 @@
+<%= form_with(model: follow_request) do |form| %>
+  <% if follow_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(follow_request.errors.count, "error") %> prohibited this follow_request from being saved:</h2>
+
+      <ul>
+        <% follow_request.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :recipient_id %>
+    <%= form.text_field :recipient_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sender_id %>
+    <%= form.text_field :sender_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
