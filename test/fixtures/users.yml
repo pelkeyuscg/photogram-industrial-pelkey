@@ -7,7 +7,7 @@
 #  email                  :citext           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  likes_count            :integer          default(0)
-#  photo_count            :integer
+#  photos_count           :integer
 #  private                :boolean          default(TRUE)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime

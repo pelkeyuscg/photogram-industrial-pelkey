@@ -2,8 +2,8 @@ task sample_data: :environment do
   p "Creating sample data"
 
   if Rails.env.development?
-    FollowRequest.destroy_all
     User.destroy_all
+    FollowRequest.destroy_all
   end
 
   12.times do
@@ -58,7 +58,7 @@ task sample_data: :environment do
               author: follower
             )
           end
-    end
+        end
   end
 end
 
