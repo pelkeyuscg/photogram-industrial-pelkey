@@ -9,21 +9,23 @@ task sample_data: :environment do
     Comment.destroy_all
     Photo.destroy_all
     User.destroy_all
-  end
+  
+  usernames = Array.new { Faker::Name.first_name }
 
-  12.times do
-    name = Faker::Name.first_name.downcase
-    u = User.create(
-      email: "#{name}@example.com",
-      username: name,
+  usernames << "alice"
+  usernames << "bob"
+
+  usernames.each do |username|
+    name = Faker::Name.first_name
+    User.create(
+      email: "#{username}@example.com",
       password: "password",
+      username: username.downcase,
       private: [true, false].sample
     )
   end
 
-    p "#{User.count} users have been created" 
-
-    users = User.all
+   users = User.all
 
     users.each do |first_user|
         users.each do |second_user|
