@@ -77,3 +77,4 @@ end
   p "There are now #{Like.count} likes"
   p "There are now #{Comment.count} comments"
 end
+end
