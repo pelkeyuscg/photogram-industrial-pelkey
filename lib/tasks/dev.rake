@@ -1,9 +1,14 @@
 task sample_data: :environment do
   p "Creating sample data"
 
+  starting = Time.now
+
   if Rails.env.development?
-    User.destroy_all
     FollowRequest.destroy_all
+    Like.destroy_all
+    Comment.destroy_all
+    Photo.destroy_all
+    User.destroy_all
   end
 
   12.times do
@@ -47,7 +52,7 @@ task sample_data: :environment do
           image: "https://robohash.org/#{rand(9999)}"
         )
 
-        users.followers.each do |follower|
+        user.followers.each do |follower|
           if rand < 0.5
               photo.fans << follower
           end
